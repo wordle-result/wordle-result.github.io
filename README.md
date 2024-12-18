@@ -1,0 +1,1 @@
+# wordle-result.github.io
