@@ -31,7 +31,7 @@ async function getWordsForNextDays(daysCount) {
         } catch (error) {
             console.error(error, "probably not set by the NYT");
         }
-        await sleep(500);
+        await sleep(1500);
         results.push(data);
         dom.innerHTML += `<pre>Date : ${results[results.length - 1].print_date}, Word : ${results[results.length - 1].solution}</pre>`
         
