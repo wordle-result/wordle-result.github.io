@@ -1,7 +1,7 @@
 //const CryptoJS = require("./crypto-js.min.js");
 
 const results = [];
-const dom = document.querySelector("body");
+const dom = document.querySelector("#body");
 
 async function apimekoGames(series, games, resultIndex="champion_name") {
     
@@ -18,19 +18,19 @@ async function apimekoGames(series, games, resultIndex="champion_name") {
     
         const bytes = CryptoJS.AES.decrypt(encryptedData, key);
         const resJson = JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
-        results.push(game + " : " + resJson[resultIndex]);
+        results.push(game + " : <strong>" + resJson[resultIndex] + "</strong>");
         dom.innerHTML += "<pre>" + results[results.length - 1] + "</pre>" 
 
         if(series == "loldle" && resJson) {
             console.log
             if(game == "ability") {
-                results.push("ability letter : " + resJson.ability_letter);
+                results.push("ability letter : <strong>" + resJson.ability_letter + "</strong>");
                 dom.innerHTML += "<pre>" + results[results.length - 1] + "</pre>" 
 
             }
 
             if(game == "splash") {
-                results.push("splash name : " + resJson.splash_name);
+                results.push("splash name : <strong>" + resJson.splash_name + "</strong>");
                 dom.innerHTML += "<pre>" + results[results.length - 1] + "</pre>" 
 
             }
@@ -53,7 +53,7 @@ async function allDle() {
     ];
     for (const element of all) {
         results.push( element.series);
-        dom.innerHTML += "<h3><b><pre>" + results[results.length - 1] + "</pre></b></h3>" 
+        dom.innerHTML += "<h3><b><pre><strong>" + results[results.length - 1] + "</strong></pre></b></h3>" 
 
         await apimekoGames(element.series, element.games);
 

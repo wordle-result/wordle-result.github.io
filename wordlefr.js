@@ -1,6 +1,6 @@
 
 //const seedrandom = require('./seedrandom.min.js');
-const dom = document.querySelector("body");
+const dom = document.querySelector("#body");
 
 async function getWordsForNextDays(words, daysCount) {
     const today = new Date();
@@ -19,7 +19,7 @@ async function getWordsForNextDays(words, daysCount) {
         const wordOfTheDay = words[Math.floor(random * indexLimit)];
 
         results.push({ date: formatedDate, word: wordOfTheDay });
-        dom.innerHTML += `<pre>Date : ${results[results.length - 1].date}, Mot : ${results[results.length - 1].word}</pre>`
+        dom.innerHTML += `<pre>Date : ${results[results.length - 1].date}, Mot : <strong>${results[results.length - 1].word}</strong></pre>`
     }
 
     return results;

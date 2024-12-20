@@ -1,5 +1,5 @@
 
-const dom = document.querySelector("body");
+const dom = document.querySelector("#body");
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -33,7 +33,7 @@ async function getWordsForNextDays(daysCount) {
         }
         await sleep(1500);
         results.push(data);
-        dom.innerHTML += `<pre>Date : ${results[results.length - 1].print_date}, Word : ${results[results.length - 1].solution}</pre>`
+        dom.innerHTML += `<pre>Date : ${results[results.length - 1].print_date}, Word : <strong>${results[results.length - 1].solution}</strong></pre>`
         
     }
 
